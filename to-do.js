@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `
  list_item.innerHTML = html_to_apprend;
  document.querySelector("#todo").append(list_item);
- 
-  
+ return false
 
 }
 }
