@@ -1,12 +1,22 @@
 var tasklist = new Array();
 document.addEventListener('DOMContentLoaded', function() {
- 
+ sayHi();
     document.querySelector('input[type="submit"]').onclick = function(){
  
   var tsktitle = document.getElementById("taskTitle").value;
   var priority = document.getElementById("priority").value;
-  var status = document.getElementById("Status");
- 
+
+ //Extract RadioButton Value
+  const radioButtons = document.querySelectorAll('input[name="Status"]');
+            let selectedValue;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedValue = radioButton.value;
+                    break;
+                }
+            }
+ var status = selectedValue;
+
   const tsk = new Object();
   tsk.title = tsktitle;
   tsk.priority =priority;
@@ -17,13 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
   tasklist.push(tsk)
   document.getElementById("taskTitle").value = "";
   document.getElementById("priority").value = "priority4" ;
-  document.getElementById("Status").value ="";
 
   const list_item = document.createElement('li') 
     let arrayId = tsk.id;
     let inputValue = tsk.title;
+    
     let html_to_apprend = `
-             <span id ="${arrayId}">  ${inputValue} </span>
+             <span id ="${arrayId}">${status}:${inputValue} </span>
             <button id ="${arrayId}" class="remove"> \u00D7 </button>
     `
  list_item.innerHTML = html_to_apprend;
@@ -45,7 +55,20 @@ document.addEventListener('click',function(event){
 
 })
 
-
+function sayHi(){
+  var modal = document.getElementById("Welcome");
+  var span = document.getElementsByClassName("close")[0];  
+      modal.style.display = "block";
+    
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
 
 
 return false
