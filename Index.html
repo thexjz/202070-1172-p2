@@ -1,0 +1,43 @@
+<head>
+   <!-- import styling sheet -->
+    <link rel ="stylesheet" href="./Styling.css" >
+    <!-- import preferred fonts form adobe fonts sheet -->
+    <link rel="stylesheet" href="https://use.typekit.net/xnc6qvq.css">
+    <!-- import js-->
+    <script src="to-do.js"></script>
+    <!-- Import boot strap-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+
+<body>
+<div class="form-input">
+     <!-- List Body -->
+
+  <h2>My To Do List</h2>
+   <form>
+    <!-- task title-->
+    <input type="text" id="taskTitle" name="taskTitle" placeholder="What you wanna do?">
+    <!--Priority -->
+    <select id="priority" name="priority">
+        <option value="4">Low</option>
+        <option value="3">Medium</option>
+        <option value="2">Red</option>
+        <option value="1">Magenta Red</option>
+    </select><br>
+
+
+    <!--task status -->
+    <label for="Completed" class="radio-inline">
+        <input type="radio" id="Status" name="Status" value="Completed">Completed
+        <input type="radio" id="Status" name="Status" value="Pending">Pending</label>
+    <br>
+    <input type="submit"  class = "addBtn" id ="submit">
+    </form>
+    
+</div>
+
+<ul id="todo">
+  
+</ul>
+</body>
